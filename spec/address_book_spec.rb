@@ -99,6 +99,16 @@ RSpec.describe AddressBook do
     end
   end
 
+  describe "#remove_all" do
+    it "removes all entries" do
+      book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+      book.add_entry('Alfredo Mendoza', '408.821.2824', 'almendoza25@gmail.com')
+
+      book.remove_all
+      expect(book.entries.size).to eq 0
+    end
+  end
+
   describe "#binary_search" do
     it "searches AddressBook for a non-existent entry" do
       book.import_from_csv("entries.csv")
